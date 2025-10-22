@@ -8,4 +8,10 @@ module.exports = {
   transform: {
     ...tsJestTransformCfg,
   },
+  moduleFileExtensions: ["ts", "js", "json"],
+  roots: ["<rootDir>/test"],
+  setupFilesAfterEnv: [],
+  verbose: true,
+  detectOpenHandles: true,
+  forceExit: true,
 };
