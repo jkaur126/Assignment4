@@ -1,19 +1,24 @@
 import express from "express";
-import morgan from "morgan";
-import loanRoutes from "./api/v1/routes/loanRoute";
+import { accessLogger, errorLogger, consoleLogger } from "./api/v1/middleware/logger";
+import errorHandler from "./api/v1/middleware/errorHandler";
+import loanRoutes from "./api/v1/routes/loanRoutes";
+import userRoutes from "./api/v1/routes/userRoutes";
+import adminRoutes from "./api/v1/routes/adminRoutes";
 
 const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(morgan("dev"));
+app.use(consoleLogger);
+app.use(accessLogger);
+app.use(errorLogger);
 
 // Routes
-app.use("/api/v1", loanRoutes);
+app.use("/api/v1/loans", loanRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/admin", adminRoutes);
 
-// Default route
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "High-Risk Loan Application Monitoring System API" });
-});
+// Global Error Handler
+app.use(errorHandler);
 
 export default app;
