@@ -1,9 +1,10 @@
 import { Router } from "express";
 import { setUserRole } from "../controllers/adminController";
+import { authenticate } from "../middleware/authMiddleware";
+import { authorize } from "../middleware/authorizeMiddleware";
 
 const router = Router();
 
-// POST to assign custom role
-router.post("/set-role", setUserRole);
+router.post("/set-role", authenticate, authorize(["admin"]), setUserRole);
 
 export default router;
