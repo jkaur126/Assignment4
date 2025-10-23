@@ -7,10 +7,10 @@
     "test": "test"
   },
   "scripts": {
-  "dev": "nodemon src/server.ts",
-  "build": "tsc",
-  "start": "node dist/server.js",
-  "test": "jest --verbose"
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/jkaur126/Assignment4#readme",
   "dependencies": {
     "express": "^5.1.0",
+    "firebase": "^12.4.0",
     "firebase-admin": "^13.5.0",
     "morgan": "^1.10.1"
   },

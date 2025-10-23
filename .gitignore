@@ -2,3 +2,4 @@ node_modules
 dist
 .env
 logs
+config/backend-assignment-04-11053-firebase-adminsdk-fbsvc-1d27f4e7ca.json
